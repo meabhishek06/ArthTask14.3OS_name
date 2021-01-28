@@ -1,0 +1,12 @@
+- hosts: all
+  tasks:
+      - include_vars:
+          files: '{{ansible_os_family}}.yml'
+
+      - debug:
+          msg:
+              "installing {{ package }} software"
+
+      - package:
+          name: "{{ package }}"
+          state: present
